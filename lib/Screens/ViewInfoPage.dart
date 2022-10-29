@@ -9,68 +9,53 @@ class ViewInfoPage extends StatefulWidget {
 }
 
 class _ViewInfoPageState extends State<ViewInfoPage> {
-  
- final CollectionReference _students =
+  final CollectionReference _users =
       FirebaseFirestore.instance.collection('users');
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      appBar: AppBar(
-        title: const Text("FireStore"),
-        centerTitle: true,
-      ),
-      //Use stream builder to get the updated data in real time immedietly
-      body: StreamBuilder(
-        stream: _students
-            .snapshots(), //define the desired firestore collection as the target stream to get presistent data from it
-
-        //streamsnapshot will have all the data available in our database (firestore collection)
-
-        builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-          final DocumentSnaphot documentSnapshot = streamSnapshot.data!.docs[index];
-          if (streamSnapshot.hasData) {
-            
-            return Center(
-              child: Container(
-
-                
-                // child: ListView.builder(
-                //   itemCount: streamSnapshot.data!.docs
-                //       .length, //since streamsnapshot refers to the collection, we specify the itemcount as the number of documnets we have in our firestore collection
-
-                //   itemBuilder: (BuildContext context, int index) {
-                //     //access the data from the document (fields) and save them in a documnet object(DocumentSnaphot)
-                //     final DocumentSnapshot documentSnapshot =
-                //         streamSnapshot.data!.docs[index];
-
-
-                  //   return Card(
-                  //     margin: EdgeInsets.all(8),
-                  //     child: ListTile(
-                  //       // access the fields using their property; which are 'name' and 'price' which we created earlier
-                  //       title: Text(documentSnapshot['Name']),
-                  //       subtitle:
-                  //           Text(documentSnapshot['StudentNumber'].toString()),
-                  //       trailing: SizedBox(
-                  //         width: 100,
-                  //         child: Row(),
-                  //       ),
-                  //     ),
-                  //   );
-                  // },
-                ),
+    return StreamBuilder(
+      stream: _users.snapshots(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
+          return Scaffold(
+            appBar: AppBar(),
+            body: Column(
+              children: [
+                Text(snapshot.data!.docs['color']),
+                Text(snapshot.data!.docs['email']),
+                Text(snapshot.data!.docs['uid']),
+              ],
             ),
-            );
-          }
-
-          return const Center(
-            child: CircularProgressIndicator(),
           );
-        },
-      ),
+        } else {
+          return CircularProgressIndicator();
+        }
+      },
     );
-  
+    // return Scaffold(
+
+    //   appBar: AppBar(
+    //     title: const Text("FireStore"),
+    //     centerTitle: true,
+    //   ),
+    //   //Use stream builder to get the updated data in real time immedietly
+    //   body: StreamBuilder(
+    //     stream: _users.snapshots(),
+
+    //     builder: (BuildContext context, AsyncSnapshot snapshot) {
+    //       if (snapshot.hasData) {
+    //         return Container(
+    //         child: Column(
+    //           children: [
+
+    //           ],
+    //         ),
+    //       );
+    //       }
+
+    //     },
+    //   ),
+    // );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lablab/Screens/ViewInfoPage.dart';
 
 class RadioButtonPage extends StatefulWidget {
   const RadioButtonPage({super.key});
@@ -40,7 +41,15 @@ class _RadioButtonPageState extends State<RadioButtonPage> {
                   });
                 },
               ),
-              ElevatedButton(onPressed: () {}, child: Text("Go to View page"))
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return ViewInfoPage();
+                      },
+                    ));
+                  },
+                  child: Text("Go to View page"))
             ],
           ),
         ),
