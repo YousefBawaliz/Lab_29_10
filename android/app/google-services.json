@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "5637710045",
+    "project_id": "duo-lab-47116",
+    "storage_bucket": "duo-lab-47116.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5637710045:android:4fd0a1a6589b3627e87b34",
+        "android_client_info": {
+          "package_name": "com.example.lablab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5637710045-k0d5ns4c8kofhiv4tff7ec994fpft8bn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiy-69tQs3tXsVuTUjxV3WWyFmC2rKTso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5637710045-k0d5ns4c8kofhiv4tff7ec994fpft8bn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
