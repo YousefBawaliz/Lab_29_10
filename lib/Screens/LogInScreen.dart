@@ -97,7 +97,7 @@ class _Login_screenState extends State<Login_screen> {
                     child: const Text('Login'),
                     onPressed: () {
                       logInFucntion();
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => DetectColorScreen(),
@@ -113,7 +113,7 @@ class _Login_screenState extends State<Login_screen> {
                       style: TextStyle(fontSize: 20),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
+                      Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) {
                           return SignUpPage();
                         },

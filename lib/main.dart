@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:lablab/Screens/LogInScreen.dart';
 import 'package:lablab/Screens/SignUpScreen.dart';
 import 'package:lablab/Screens/ViewPage.dart';
+import 'package:lablab/Screens/detectColor.dart';
 import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +23,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SignUpPage();
+    if (FirebaseAuth.instance.currentUser == null) {
+      return SignUpPage();
+    } else {
+      return Login_screen();
+    }
   }
 }

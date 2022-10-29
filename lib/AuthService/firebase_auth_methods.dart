@@ -43,3 +43,12 @@ class FirebaseAuthMethods {
     }
   }
 }
+
+// final FirebaseAuth auth = FirebaseAuth.instance;
+
+// Future<void> inputData() async {
+  
+//   final User user = await auth.currentUser!();
+//   final uid = user.uid;
+//   // here you write the codes to input the data into firestore
+// }
