@@ -38,7 +38,7 @@ class _ViewInfoPageState extends State<ViewInfoPage> {
           return Scaffold(
             appBar: AppBar(),
             body: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
@@ -50,25 +50,29 @@ class _ViewInfoPageState extends State<ViewInfoPage> {
                 ),
                 Text(
                   "Color: ${data['color']} ",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 25),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 Text(
                   "Email: ${data['email']} ",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 25),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 Text(
                   "userID: ${data['uid']} ",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 25),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 Text(
-                  "userID: ${data['role']} ",
-                  style: TextStyle(fontSize: 20),
+                  "userRole: ${data['role']} ",
+                  style: TextStyle(fontSize: 25),
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      print(currentUser!.uid);
-                    },
-                    child: Text("ok"))
               ],
             ),
             // body: ListView.builder(

@@ -49,7 +49,7 @@ class _RadioButtonPageState extends State<RadioButtonPage> {
                       },
                     ));
                   },
-                  child: Text("Go to View page"))
+                  child: Text("View User info"))
             ],
           ),
         ),

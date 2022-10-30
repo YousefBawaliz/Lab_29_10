@@ -25,8 +25,8 @@ class _Login_screenState extends State<Login_screen> {
 
 //create a sign in function
 
-  void logInFucntion() {
-    FirebaseAuthMethods(FirebaseAuth.instance).logInWithEmail(
+  Future logInFucntion() async {
+    await FirebaseAuthMethods(FirebaseAuth.instance).logInWithEmail(
         email: emailController.text,
         password: passwordController.text,
         context: context);
@@ -61,8 +61,6 @@ class _Login_screenState extends State<Login_screen> {
               Container(
                 height: 100,
                 width: 100,
-                decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage("images/1.png"))),
               ),
               Container(
                 padding: const EdgeInsets.all(10),
@@ -95,8 +93,8 @@ class _Login_screenState extends State<Login_screen> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xffe46b10)),
                     child: const Text('Login'),
-                    onPressed: () {
-                      logInFucntion();
+                    onPressed: () async {
+                      await logInFucntion();
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(

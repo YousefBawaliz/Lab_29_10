@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:lablab/Screens/ViewInfoPage.dart';
-
+import 'package:flutter_color/flutter_color.dart';
 import 'LogInScreen.dart';
 
 class DetectColorScreen extends StatefulWidget {
@@ -107,12 +107,13 @@ class _DetectColorScreenState extends State<DetectColorScreen> {
           } else if (snapshot.data!['color'] == 'green') {
             mycolor = (Colors.green);
           } else if (snapshot.data!['color'] == 'mix') {
-            mycolor = (Color.alphaBlend(
-              c1,
-              c2,
-            ));
+            mycolor = HexColor('#ff0000').mix(HexColor('#0000FF'), .25)!;
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
-          print(mycolor);
+
           return Scaffold(
             backgroundColor: mycolor,
             body: Padding(
@@ -156,7 +157,17 @@ class _DetectColorScreenState extends State<DetectColorScreen> {
                                 },
                               ));
                             },
-                            child: Text("Go to View page"))
+                            child: Text("Go to View page")),
+                        ElevatedButton(
+                            onPressed: () {
+                              FirebaseAuth.instance.signOut();
+                              Navigator.pop(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Login_screen(),
+                                  ));
+                            },
+                            child: Text("Log out"))
                       ],
                     );
                   },
